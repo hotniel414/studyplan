@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Role - Sekretaris dan Siswa</title>
-    <link rel="stylesheet" href="role.css">
+    <link rel="stylesheet" href="/studyplan/asset/role.css">
 
-  
+
 </head>
 
 <body>
@@ -26,8 +26,7 @@
                 type="button"
                 class="role-option active"
                 id="sekretarisRole"
-                onclick="pilihRole('sekretaris')"
-            >
+                onclick="pilihRole('sekretaris')">
                 <span class="role-icon">📋</span>
                 <span class="role-name">Sekretaris</span>
             </button>
@@ -36,8 +35,7 @@
                 type="button"
                 class="role-option"
                 id="siswaRole"
-                onclick="pilihRole('siswa')"
-            >
+                onclick="pilihRole('siswa')">
                 <span class="role-icon">🎓</span>
                 <span class="role-name">Siswa</span>
             </button>
@@ -55,8 +53,7 @@
                     name="username"
                     placeholder="Masukkan username"
                     autocomplete="username"
-                    required
-                >
+                    required>
             </div>
 
             <div class="form-group">
@@ -68,8 +65,7 @@
                     name="password"
                     placeholder="Masukkan password"
                     autocomplete="current-password"
-                    required
-                >
+                    required>
             </div>
 
             <label class="remember">
@@ -127,9 +123,13 @@
 
                 loginButton.textContent = "Masuk sebagai Sekretaris";
                 var r = document.getElementById("registerLink");
-                if (r) { r.style.display = "none"; }
+                if (r) {
+                    r.style.display = "none";
+                }
                 var ft = document.getElementById("footerText");
-                if (ft) { ft.style.visibility = "hidden"; }
+                if (ft) {
+                    ft.style.visibility = "hidden";
+                }
             } else {
                 siswaRole.classList.add("active");
                 sekretarisRole.classList.remove("active");
@@ -148,7 +148,9 @@
                 document.getElementById("registerLink").href = "register_siswa.html";
                 document.getElementById("registerLink").style.display = "inline";
                 var ft = document.getElementById("footerText");
-                if (ft) { ft.style.visibility = "visible"; }
+                if (ft) {
+                    ft.style.visibility = "visible";
+                }
             }
         }
 
@@ -175,4 +177,5 @@
     </script>
 
 </body>
+
 </html>

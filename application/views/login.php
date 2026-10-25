@@ -69,8 +69,8 @@
             </div>
 
             <label class="remember">
-                <input type="checkbox" id="remember">
-                Ingat saya
+                <input type="checkbox" id="showPassword">
+                Tampilkan password
             </label>
 
             <button type="submit" class="login-button">
@@ -137,7 +137,7 @@
                 logo.textContent = "🎓";
                 title.textContent = "Siswa";
                 subtitle.textContent =
-                    "Selamat datang, silakan masuk ke akun siswa";
+                    "Selamat datang, silakan masuk ke akun anda";
 
                 usernameLabel.textContent = "Username";
                 usernameInput.placeholder =
@@ -153,6 +153,13 @@
                 }
             }
         }
+
+        document.getElementById("showPassword")
+            .addEventListener("change", function() {
+                const passwordInput =
+                    document.getElementById("password");
+                passwordInput.type = this.checked ? "text" : "password";
+            });
 
         document.getElementById("loginForm")
             .addEventListener("submit", function(event) {

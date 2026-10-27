@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda | StudyPlan</title>
 
-    <link rel="stylesheet" href="/studyplan/asset/beranda.css">
+    <link rel="stylesheet" href="/studyplan/asset/beranda.css?v=3">
 </head>
 <body>
 
@@ -14,22 +14,22 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
         <a href="<?= site_url('beranda'); ?>" class="logo">
-            <span class="logo-icon">▰</span>
+            <span class="logo-icon">🎓</span>
             <span>study<span class="logo-yellow">plan</span></span>
         </a>
 
         <nav class="navigation">
             <a href="<?= site_url('beranda'); ?>" class="nav-item active">
-                <span>⌂</span> Beranda
+                <span>🏠</span> Beranda
             </a>
             <a href="<?= site_url('jadwal'); ?>" class="nav-item">
-                <span>▦</span> Jadwal Pelajaran
+                <span>📅</span> Jadwal Pelajaran
             </a>
             <a href="<?= site_url('tugas'); ?>" class="nav-item">
-                <span>▤</span> Tugas
+                <span>📝</span> Tugas
             </a>
             <a href="<?= site_url('pemberitahuan'); ?>" class="nav-item">
-                <span>♧</span> Pemberitahuan
+                <span>🔔</span> Pemberitahuan
             </a>
         </nav>
 
@@ -60,7 +60,6 @@
             </div>
 
             <div class="date-box">
-                <span class="date-icon">▦</span>
                 <div>
                     <strong><?= html_escape($tanggal); ?></strong>
                     <small>Semoga harimu menyenangkan!</small>
@@ -78,20 +77,6 @@
                 <small>Tugas keseluruhan</small>
             </div>
 
-            <div class="stat-card stat-green">
-                <div class="stat-icon">✓</div>
-                <p>Tugas Selesai</p>
-                <h2><?= $tugas_selesai; ?></h2>
-                <small>Sudah dikerjakan</small>
-            </div>
-
-            <div class="stat-card stat-orange">
-                <div class="stat-icon">◷</div>
-                <p>Tugas Belum Selesai</p>
-                <h2><?= $tugas_belum; ?></h2>
-                <small>Masih harus dikerjakan</small>
-            </div>
-
             <div class="stat-card stat-purple">
                 <div class="stat-icon">▦</div>
                 <p>Tugas Hari Ini</p>
@@ -107,7 +92,7 @@
             <!-- JADWAL HARI INI -->
             <div class="panel schedule-panel">
                 <div class="panel-heading">
-                    <div class="heading-icon">▦</div>
+                    <div class="heading-icon">📅</div>
                     <div>
                         <h2>Jadwal Hari Ini</h2>
                         <p><?= html_escape($tanggal); ?></p>
@@ -142,7 +127,7 @@
             <!-- TUGAS HARI INI -->
             <div class="panel task-panel">
                 <div class="panel-heading">
-                    <div class="heading-icon">▤</div>
+                    <div class="heading-icon">📝</div>
                     <div>
                         <h2>Tugas Hari Ini</h2>
                         <p>Prioritaskan tugas yang segera dikumpulkan</p>
@@ -162,8 +147,8 @@
                     <?php else: ?>
 
                         <?php foreach ($daftar_tugas_hari_ini as $t): ?>
-                            <article class="task-card">
-                                <div class="task-icon <?= html_escape($t['warna']); ?>">
+                            <article class="task-card <?= html_escape($t['warna']); ?>">
+                                <div class="task-icon">
                                     <?= html_escape($t['ikon']); ?>
                                 </div>
 
@@ -176,16 +161,16 @@
 
                                     <p><?= html_escape($t['deskripsi']); ?></p>
 
-                                    <div class="task-footer">
-                                        <span class="deadline">
-                                            ▦ Hari ini
+                                    <div class="task-deadline">
+                                        <span class="deadline-text">
+                                            Deadline: <strong><?= html_escape($t['deadline']); ?></strong>
                                         </span>
-
-                                        <a href="<?= site_url('tugas'); ?>"
-                                           class="detail-button">
-                                            Lihat Detail <span>→</span>
-                                        </a>
                                     </div>
+
+                                    <a href="<?= site_url('tugas/detail/' . urlencode($t['judul'])); ?>"
+                                       class="view-photo-button">
+                                        Lihat Foto Tugas <span>→</span>
+                                    </a>
                                 </div>
                             </article>
                         <?php endforeach; ?>

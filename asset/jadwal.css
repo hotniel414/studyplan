@@ -1,0 +1,362 @@
+/* =========================
+   RESET DAN DASAR
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #203e68;
+    --navy-dark: #173255;
+    --blue: #2878ed;
+    --text: #1d355b;
+    --muted: #7183a0;
+    --border: #e0e9f7;
+    --background: #f4f8ff;
+    --white: #ffffff;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    font-size: 14px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    width: 245px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, var(--navy), var(--navy-dark));
+    color: white;
+    padding: 25px 13px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 43px;
+}
+
+.logo-icon {
+    color: #ffd451;
+    font-size: 34px;
+}
+
+.logo-yellow {
+    color: #ffd451;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 17px;
+    border-radius: 10px;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.nav-item > span {
+    width: 22px;
+    font-size: 21px;
+    text-align: center;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.19);
+}
+
+.sidebar-quote {
+    margin-top: auto;
+    padding: 35px 16px 15px;
+    color: #e6edff;
+    font-size: 16px;
+    line-height: 1.65;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.sidebar-quote span {
+    display: block;
+    color: #ffd451;
+    font-size: 30px;
+}
+
+/* =========================
+   KONTEN UTAMA
+========================= */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 0 36px 25px;
+    margin-left: 245px;
+}
+
+.topbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    margin-left: 0;
+    padding: 0 36px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.topbar-title {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.profile-icon {
+    display: grid;
+    place-items: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background: #e0edff;
+    color: var(--navy);
+    font-size: 24px;
+}
+
+/* =========================
+   JADWAL SECTION
+========================= */
+.schedule-section {
+    margin-top: 32px;
+}
+
+.section-title {
+    font-size: clamp(22px, 2.1vw, 30px);
+    margin-bottom: 24px;
+    color: #132e56;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.day-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 21px;
+    min-width: 0;
+    box-shadow: 0 3px 12px rgba(39, 72, 116, 0.025);
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--navy);
+}
+
+.day-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.day-count {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.day-lessons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lesson-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    padding: 13px 12px;
+    border-radius: 11px;
+    background: #f4f8ff;
+    border: 1px solid var(--border);
+}
+
+.lesson-item.biru { background: #edf4ff; border-color: #d6e5ff; }
+.lesson-item.merah { background: #fff0f4; border-color: #f8d7da; }
+.lesson-item.ungu { background: #f5efff; border-color: #e6dcff; }
+.lesson-item.abu { background: #f1f4f8; border-color: #d9e2ec; }
+.lesson-item.hijau { background: #edf9f5; border-color: #d0f2e0; }
+.lesson-item.jingga { background: #fff6e9; border-color: #f8eac5; }
+
+.lesson-item.istirahat { background: #eef7ff; border-color: #bfe3ff; }
+
+.lesson-time {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue);
+    white-space: nowrap;
+    padding-top: 2px;
+}
+
+.lesson-detail {
+    min-width: 0;
+}
+
+.lesson-subject {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #18355d;
+    line-height: 1.4;
+}
+
+.subject-icon {
+    filter: grayscale(100%);
+}
+
+.lesson-room {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    text-align: center;
+    padding: 22px 0 0;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+@media (max-width: 1100px) {
+    .sidebar {
+        width: 205px;
+    }
+
+    .main-content {
+        padding-left: 22px;
+        padding-right: 22px;
+        margin-left: 205px;
+    }
+
+    .topbar {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+@media (max-width: 650px) {
+    .dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 14px;
+        position: static;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+        font-size: 23px;
+    }
+
+    .navigation {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .nav-item {
+        padding: 10px;
+        gap: 6px;
+        font-size: 11px;
+    }
+
+    .nav-item > span {
+        width: auto;
+        font-size: 16px;
+    }
+
+    .sidebar-quote {
+        display: none;
+    }
+
+    .main-content {
+        padding: 0 14px 20px;
+        margin-left: 0;
+    }
+
+    .topbar {
+        height: 58px;
+        margin: 0 -14px;
+        padding: 0 14px;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-item {
+        grid-template-columns: 70px 1fr;
+        padding: 11px 10px;
+    }
+}
